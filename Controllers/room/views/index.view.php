@@ -58,7 +58,7 @@
           <span class="dashboard"><?php echo $heading ?></span>
         </div>
         <div class="search-box">
-          <input type="text" placeholder="Search..." />
+          <input type="text" placeholder="Search here" />
           <i class="bx bx-search"></i>
         </div>
         <div class="profile-details">
