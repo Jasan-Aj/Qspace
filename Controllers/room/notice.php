@@ -212,7 +212,7 @@
                     </ul>
                 </div>
                 
-                <form action="store" method="post">
+                <form action="<?php echo addRoute('store') ?>" method="post">
 
                 <div class="flex items-start">
                     <div class="flex items-center h-5">

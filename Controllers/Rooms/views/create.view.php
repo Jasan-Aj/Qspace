@@ -38,7 +38,7 @@
                         
                     </div>
                     
-                    <form class="space-y-4" method="post" action="store" >
+                    <form class="space-y-4" method="post" action="<?php echo addRoute('store') ?>" >
                         <!-- Name Input -->
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name for your room</label>

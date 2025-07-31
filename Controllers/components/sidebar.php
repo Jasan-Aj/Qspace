@@ -5,7 +5,7 @@
       </div>
       <ul class="nav-links">
         <li>
-          <a href="rooms" class=<?php echo $_SERVER['REQUEST_URI'] == addRoute('rooms') ? "active" : ""  ?> >
+          <a href="<?php echo addRoute('rooms') ?>" class=<?php echo $_SERVER['REQUEST_URI'] == addRoute('rooms') ? "active" : ""  ?> >
             <i class="bx bx-grid-alt"></i>
             <span class="links_name">Explore Rooms</span>
           </a>
@@ -13,7 +13,7 @@
 
         <?php if(isset($_SESSION['user'])):?>
         <li>
-          <a href="myrooms" class=<?php echo $_SERVER['REQUEST_URI'] == addRoute('myrooms') ? "active" : ""  ?>>
+          <a href="<?php echo addRoute('myrooms') ?>" class=<?php echo $_SERVER['REQUEST_URI'] == addRoute('myrooms') ? "active" : ""  ?>>
             <i class="bx bx-grid-alt"></i>
             <span class="links_name">My Rooms</span>
           </a>
@@ -23,7 +23,7 @@
 
         <?php if(isset($_SESSION['user'])): ?>
         <li class="log_out">
-          <form  action="logout" method="post">
+          <form  action="<?php echo addRoute('logout') ?>" method="post">
             <a>
               <i class="bx bx-log-out"></i>
               <input type="hidden" value="DELETE" name="__method">

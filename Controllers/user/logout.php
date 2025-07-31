@@ -2,6 +2,6 @@
     $_SESSION=[];
     session_destroy();
 
-    header('location: /QSPACE/');
+    header('location: '. addRoute());
     exit();
 ?>
