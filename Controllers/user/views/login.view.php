@@ -12,7 +12,7 @@
                     <h1 class="text-2xl xl:text-3xl font-extrabold">
                         Login
                     </h1>
-                    <form action="session" method="post" class="w-full">
+                    <form action="<?php echo addRoute('session') ?>" method="post" class="w-full">
                         <div class="w-full flex-1 mt-8">
                             
                             <div class="my-12 border-b text-center">
