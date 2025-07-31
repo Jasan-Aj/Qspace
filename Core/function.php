@@ -13,4 +13,8 @@
         }
     }
 
+    function addRoute($url=''){
+        return '/git/Qspace/'.$url;
+    }
+
 ?>

@@ -17,6 +17,6 @@
         'user_id' => $user_id,
     ]);
 
-    header('location: /QSPACE/myrooms');
+    header('location: /git/Qspace/myrooms');
 
 ?>

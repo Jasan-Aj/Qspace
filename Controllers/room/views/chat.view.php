@@ -159,14 +159,14 @@
     </div>
     <ul class="nav-links">
       <li>
-        <a href="/QSPACE/rooms" class="<?php echo $_SERVER['REQUEST_URI'] == '/QSPACE/rooms' ? 'active' : '' ?>">
+        <a href="<?php echo addRoute('rooms') ?>" class="<?php echo $_SERVER['REQUEST_URI'] == '/QSPACE/rooms' ? 'active' : '' ?>">
           <i class="bx bx-grid-alt"></i>
           <span class="links_name">Explore Rooms</span>
         </a>
       </li>
 
       <li>
-        <a href="/QSPACE/myrooms" class="<?php echo $_SERVER['REQUEST_URI'] == '/QSPACE/myrooms' ? 'active' : '' ?>">
+        <a href="<?php echo addRoute('myrooms') ?>" class="<?php echo $_SERVER['REQUEST_URI'] == '/QSPACE/myrooms' ? 'active' : '' ?>">
           <i class="bx bx-box"></i>
           <span class="links_name">My Rooms</span>
         </a>
@@ -174,7 +174,7 @@
       
       <?php if(isset($_SESSION['user'])): ?>
       <li class="log_out">
-        <form action="/QSPACE/logout" method="post">
+        <form action="<?php echo addRoute('logout') ?>" method="post">
           <a style="display: flex; align-items: center;">
             <i class="bx bx-log-out"></i>
             <input type="hidden" value="DELETE" name="__method">

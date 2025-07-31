@@ -51,7 +51,7 @@
 
                     if($route['middleware'] == "guest"){
                         if(isset($_SESSION['user'])){
-                            header('location: rooms');
+                            header('location:'.addRoute('rooms'));
                             exit();
                         }
                         else{
@@ -62,7 +62,7 @@
 
                     elseif($route['middleware'] == "auth"){
                         if(!isset($_SESSION['user'])){
-                            header('location: /QSPACE/login');
+                            header('location:'.addRoute('login'));
                             exit();
                         }
                         else{
