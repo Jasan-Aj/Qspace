@@ -68,7 +68,7 @@
           <span class="dashboard">Available Rooms</span>
         </div>
         <div class="search-box">
-          <input type="text" placeholder="Search here.." />
+          <input type="text" placeholder="Search here " />
           <i class="bx bx-search"></i>
         </div>
         <div class="profile-details">
@@ -78,7 +78,7 @@
                 <i class="bx bx-chevron-down"></i>
             <?php else: ?>
                 <div class="buttons">
-                    <a href="login"><button>Login</button></a>
+                    <a href="login"><button>login</button></a>
                     <a href="register"><button>Sign up</button></a>
                 </div>
             <?php endif ?>

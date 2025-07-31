@@ -27,7 +27,7 @@
             <a>
               <i class="bx bx-log-out"></i>
               <input type="hidden" value="DELETE" name="__method">
-              <input class="links_name" style="background-color: #0A2558; color:white; font-family: 'Poppins', sans-serif; border:none; font-weight:bold; cursor:pointer; " type="submit" value="Log out">
+              <input class="links_name" style="background-color: #193a7cff; color:white; font-family: 'Poppins', sans-serif; border:none; font-weight:bold; cursor:pointer; " type="submit" value="Log out">
             </a>
           </form>
         </li>
