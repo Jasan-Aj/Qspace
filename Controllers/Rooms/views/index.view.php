@@ -68,7 +68,7 @@
           <span class="dashboard">Available Rooms</span>
         </div>
         <div class="search-box">
-          <input type="text" placeholder="Search here" />
+          <input type="text" placeholder="Search here.." />
           <i class="bx bx-search"></i>
         </div>
         <div class="profile-details">
