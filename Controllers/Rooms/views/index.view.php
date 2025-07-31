@@ -65,7 +65,7 @@
       <nav>
         <div class="sidebar-button">
           <i class="bx bx-menu sidebarBtn"></i>
-          <span class="dashboard">Available Rooms</span>
+          <span class="dashboard">Availabl Rooms</span>
         </div>
         <div class="search-box">
           <input type="text" placeholder="Search here" />
