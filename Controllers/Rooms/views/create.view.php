@@ -11,24 +11,7 @@
 ?>
 
 <section class="home-section">
-    <nav>
-        <div class="sidebar-button">
-          <i class="bx bx-menu sidebarBtn"></i>
-          <span class="dashboard"><?php echo $heading ?></span>
-        </div>
-        <div class="profile-details">
-            <?php if(isset($_SESSION['user'])): ?>
-                <img src="assets/pic.jpg" alt="" />
-                <span class="admin_name"><?php echo $_SESSION['user'] ?></span>
-                <i class="bx bx-chevron-down"></i>
-            <?php else: ?>
-                <div class="buttons">
-                    <a href="login"><button>Login</button></a>
-                    <a href="register"><button>Sign up</button></a>
-                </div>
-            <?php endif ?>
-        </div>
-      </nav>
+    <?php require base_path('Controllers/components/nav_without_search.php') ?>
     <div class="home-content">
         <main class=" flex items-center justify-center">
             <div class="w-full max-w-md items-center mt-10">

@@ -4,23 +4,15 @@
     <div class="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
         <div class="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
             <div class="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
-                <div>
-                    <img src="https://storage.googleapis.com/devitary-image-host.appspot.com/15846435184459982716-LogoMakr_7POjrN.png"
-                        class="w-32 mx-auto" />
-                </div>
-                <div class="mt-12 flex flex-col items-center">
+                
+                <div class=" flex flex-col items-center">
                     <h1 class="text-2xl xl:text-3xl font-extrabold">
                         Sign up
                     </h1>
-                    <form action="<?php echo addRoute('store-user') ?>" method="post" class="w-full">
+                    <form action="<?php echo addRoute('store-user') ?>" method="post" class="w-full" enctype="multipart/form-data">
                         <div class="w-full flex-1 mt-8">
                             
-                            <div class="my-12 border-b text-center">
-                                <div
-                                    class="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
-                                    
-                                </div>
-                            </div>
+                            <hr class="my-9">
 
                             <div class="mx-auto max-w-xs ">
                                 <input
@@ -36,6 +28,29 @@
                                     type="text" placeholder="Username" name="username" value="<?php echo isset($errors['body']) ? $_POST['username']: '' ?>" />
                                     
                                     <p class="text-red-500 text-sm pt-3"><?php echo !empty($errors) ? $errors['body'] : "" ?></p>
+
+                                <div class="flex w-full flex-col items-start gap-4 mb-6">
+                                <span class="font-semibold text-default-font">
+                                    Avatar
+                                </span>
+                                <div class="flex items-center gap-4">
+                                    <div class="flex items-center justify-center w-full">
+                                        <label class="flex flex-col items-center justify-center w-full h-30 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors px-3">
+                                           
+                                            <div class="flex flex-col items-center justify-center pt-2 pb-2">
+                                            <i class="fas fa-cloud-upload-alt text-3xl text-gray-500 mb-1"></i>
+                                            <p class="text-sm text-gray-500">
+                                                <span class="font-semibold">Click to upload</span>
+                                            </p>
+                                            <p class="text-xs text-gray-400">PNG, JPG</p>
+                                            </div>
+                                            
+                                            <input type="file" name="image" accept="image/*" class="hidden" />
+                                        </label>
+                                        </div>
+                                </div>
+                            </div>
+
                                 <button
                                     type="submit"
                                     class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">

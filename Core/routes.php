@@ -9,6 +9,12 @@
    $router->get(addRoute('myrooms'),'Controllers/room/index.php')->only('auth');
    $router->get(addRoute('chat/'),'Controllers/room/chat.php')->only('auth');
 
+   $router->get(addRoute('profile'),'Controllers/setting/profile.php')->only('auth');
+   $router->get(addRoute('change_password'),'Controllers/setting/password.php')->only('auth');
+   $router->get(addRoute('delete_account'),'Controllers/setting/delete.php')->only('auth');
+
+   $router->patch(addRoute('update_profile'),'Controllers/setting/actions/update_profile.php')->only('auth');
+
    $router->post(addRoute('store'),'Controllers/Rooms/store.php');
    
    $router->post(addRoute('store-user'),'Controllers/user/store.php');

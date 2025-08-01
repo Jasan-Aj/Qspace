@@ -2,7 +2,7 @@
 
     $config = require base_path('Core/config.php');
     
-
+    $heading = "Available Rooms";
     $db = new Database($config);
     $rooms = $db->query('SELECT * FROM rooms')->fetchAll();
 

@@ -25,7 +25,7 @@
             'members_count' => $count,
             'description' => $description,
         ]);
-        header('location:/git/Qspace/rooms');
+        header('location:'.addRoute('rooms'));
     }
 
 ?>

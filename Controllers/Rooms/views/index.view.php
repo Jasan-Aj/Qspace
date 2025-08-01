@@ -62,28 +62,7 @@
 <?php require base_path('Controllers/components/sidebar.php') ?>
 
 <section class="home-section">
-      <nav>
-        <div class="sidebar-button">
-          <i class="bx bx-menu sidebarBtn"></i>
-          <span class="dashboard">Available Rooms</span>
-        </div>
-        <div class="search-box">
-          <input type="text" placeholder="Search here.." />
-          <i class="bx bx-search"></i>
-        </div>
-        <div class="profile-details">
-            <?php if(isset($_SESSION['user'])): ?>
-                <img src="assets/pic.jpg" alt="" />
-                <span class="admin_name"><?php echo $_SESSION['user'] ?></span>
-                <i class="bx bx-chevron-down"></i>
-            <?php else: ?>
-                <div class="buttons">
-                    <a href="login"><button>Login</button></a>
-                    <a href="register"><button>Sign up</button></a>
-                </div>
-            <?php endif ?>
-        </div>
-      </nav>
+      <?php require base_path('Controllers/components/navbar.php') ?>
 
     <div class="home-content">
         <div class="flex justify-end">
@@ -97,7 +76,7 @@
                     <a href="join-notice/?id=<?php echo $room['id'] ?>">
                     <div class=" mt-1 flex justify-between px-2 text-sm">
                         <p><?php echo timeAgo($room['created_date']) ?></p>
-                        <p><?php echo $room['host'] ?></p>
+                        <p><?php echo getHost($room['host']) ?></p>
                     </div>
                     <div class="mt-1 px-2 text-lg font-semibold py-3">
                         <p><?php echo $room['name'] ?></p>

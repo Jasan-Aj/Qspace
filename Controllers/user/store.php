@@ -5,6 +5,18 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
     $username = $_POST['username'];
+    $upload_dir = base_path("assets/uploads/");
+
+    if ($_FILES['image']['error'] == 0) {
+        $file_name = basename($_FILES['image']['name']);
+        $file_path = $upload_dir . $file_name;
+    }
+
+    else {
+        $errors['body'] = "Error in uploading avatar!";
+        require base_path('Controllers/user/register.php'); 
+        exit();
+    }
 
     $email_res = $validator->lengthValidate($email);
     $pass_res = $validator->lengthValidate($password,8);
@@ -40,12 +52,21 @@
         else{
             $config = require base_path('Core/config.php');
             $db = new Database($config);
-            $db->query("INSERT INTO user (email, password, username) VALUES(:email, :password, :username)",[
-                'email' => $email,
-                'password' => $password,
-                'username' => $username,
-            ]);
-            header('location: login');
+            if (move_uploaded_file($_FILES['image']['tmp_name'], $file_path)) {
+
+                $db->query("INSERT INTO user (email, password, username, profile_pic) VALUES(:email, :password, :username, :profile_pic)",[
+                    'email' => $email,
+                    'password' => $password,
+                    'username' => $username,
+                    'profile_pic' => $file_name,
+                ]);
+                header('location:'.addRoute('login'));
+    
+            } else {
+                $errors['body'] = "Error in moving file!";
+                require base_path('Controllers/user/register.php');
+                exit();
+        }
         }
     }
 

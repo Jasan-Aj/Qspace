@@ -17,6 +17,6 @@
         'user_id' => $user_id,
     ]);
 
-    header('location: /git/Qspace/myrooms');
+    header('location:'.addRoute('myrooms'));
 
 ?>
