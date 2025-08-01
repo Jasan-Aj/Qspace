@@ -87,7 +87,7 @@
             <?php endif ?>
         </div>
       </nav>
->>>>>>> 2cb02a8afa4b9df34cdaf353cb800281a47117c2
+>>>>>>> 2cb02a8afa4b9df34cdaf353cb800281a47117c2git
 
     <div class="home-content">
         <div class="flex justify-end">
