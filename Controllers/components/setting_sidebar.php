@@ -10,11 +10,11 @@
                     Personal
                 </span>
                 <div class="flex w-full flex-col items-start gap-2">
-                    <a href="<?php echo addRoute('profile') ?>" class="w-full px-3 py-2 <?php echo parse_url($_SERVER['REQUEST_URI'])['path'] == addRoute('profile/') ? 'bg-blue-50 text-blue-600' : 'text-gray-600 hover:bg-gray-50' ?> rounded-md font-medium">Account</a>
-                    <a href="<?php echo addRoute('change_password') ?>" class="w-full px-3 py-2 <?php echo parse_url($_SERVER['REQUEST_URI'])['path'] == addRoute('change_password/') ? 'bg-blue-50 text-blue-600' : 'text-gray-600 hover:bg-gray-50' ?> rounded-md font-medium flex items-center gap-2">
+                    <a href="<?php echo addRoute('profile') ?>" class="w-full px-3 py-2 <?php echo parse_url($_SERVER['REQUEST_URI'])['path'] == addRoute('profile') ? 'bg-blue-50 text-blue-600' : 'text-gray-600 hover:bg-gray-50' ?> rounded-md font-medium">Account</a>
+                    <a href="<?php echo addRoute('change_password') ?>" class="w-full px-3 py-2 <?php echo parse_url($_SERVER['REQUEST_URI'])['path'] == addRoute('change_password') ? 'bg-blue-50 text-blue-600' : 'text-gray-600 hover:bg-gray-50' ?> rounded-md font-medium flex items-center gap-2">
                         Password
                     </a>
-                    <a href="<?php echo addRoute('delete_account') ?>" class="w-full px-3 py-2 <?php echo parse_url($_SERVER['REQUEST_URI'])['path'] == addRoute('delete_account/') ? 'bg-blue-50 text-blue-600' : 'text-gray-600 hover:bg-gray-50' ?> rounded-md font-medium flex items-center gap-2">
+                    <a href="<?php echo addRoute('delete_account') ?>" class="w-full px-3 py-2 <?php echo parse_url($_SERVER['REQUEST_URI'])['path'] == addRoute('delete_account') ? 'bg-blue-50 text-blue-600' : 'text-gray-600 hover:bg-gray-50' ?> rounded-md font-medium flex items-center gap-2">
                         Delete account
                     </a>
                 </div>

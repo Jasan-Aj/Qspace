@@ -27,15 +27,18 @@
                             </h2>
                             
                             <div class="border border-red-200 bg-red-50 rounded-md p-4">
+                                <form id="form" action="<?php echo addRoute('delete_account') ?>" method="post">
                                 <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                                    <input type="hidden" value="DELETE"  name="__method">
                                     <div>
                                         <h3 class="font-semibold text-red-800">Delete account</h3>
                                         <p class="text-sm text-red-600">Permanently remove your account. This action is not reversible.</p>
                                     </div>
-                                    <button class="px-4 py-2 border border-red-600 text-red-600 rounded-md hover:bg-red-100 whitespace-nowrap">
+                                    <button type="button" onclick="confirmSubmit()" class="px-4 py-2 border border-red-600 text-red-600 rounded-md hover:bg-red-100 whitespace-nowrap">
                                         Delete account
-                                    </button>
+                                    </button>   
                                 </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -43,5 +46,12 @@
             </div>
         </div>
     </div>
+    <Script>
+        function confirmSubmit(){
+            if(confirm("Are you sure?")){
+                document.getElementById("form").submit();
+            }
+        }
+    </Script>
 </body>
 </html>

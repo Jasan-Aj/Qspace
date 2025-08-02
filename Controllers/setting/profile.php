@@ -3,10 +3,8 @@
 
     $config = require base_path("Core/config.php");
     $db = new Database($config);
-    $res = $db->query("SELECT id FROM user WHERE username = :username",[
-      'username' => $_SESSION['user']
-    ])->fetch();
-    $id = $res['id'];
+    
+    $id = $_SESSION['user_id'];
 
     $res = $db->query("SELECT * FROM user WHERE id = :id",[
         'id' => $id

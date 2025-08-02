@@ -2,14 +2,12 @@
 
     require base_path('Controllers/components/header.php');
 
-    $username = $_SESSION['user'];
+    
     $config = require base_path('Core/config.php');
     $db = new Database($config);
-    $res = $db->query("SELECT id FROM user WHERE username = :username",[
-      'username'=> $username
-    ])->fetch();
+    ;
     
-    $user_id = $res['id'];
+    $user_id = $_SESSION['user_id'];
     $room_ids = $db->query("SELECT room_id FROM room_members WHERE user_id = :user_id",[
       'user_id' => $user_id
     ])->fetchAll();
@@ -59,7 +57,7 @@
         <div class="flex flex-col gap-5">
             <?php if(!empty($rooms)): ?>
             <?php foreach ($rooms as $room):?>
-                <a href="chat/?id=<?php echo $room['id'] ?>"><div class="border-2 w-1/2 rounded-lg ml-6 bg-white p-3">
+                <a href="chat/?id=<?php echo $room['id'] ?>"><div class="border-2 w-[80%] sm:w-[85%] md:w-[75%] lg:w-[65%] xl:w-[55%] rounded-lg ml-6 bg-white p-3">
                     <div class=" mt-1 flex justify-between px-2 text-sm">
                         <p><?php echo timeAgo($room['created_date']) ?></p>
                         <p><?php echo getHost($room['host']) ?></p>

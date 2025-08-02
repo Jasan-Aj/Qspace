@@ -50,7 +50,7 @@
                 if($route['url']==$url && $route['method']==$method){
 
                     if($route['middleware'] == "guest"){
-                        if(isset($_SESSION['user'])){
+                        if(isset($_SESSION['user_id'])){
                             header('location:'.addRoute('rooms'));
                             exit();
                         }
@@ -61,7 +61,7 @@
                     }
 
                     elseif($route['middleware'] == "auth"){
-                        if(!isset($_SESSION['user'])){
+                        if(!isset($_SESSION['user_id'])){
                             header('location:'.addRoute('login'));
                             exit();
                         }

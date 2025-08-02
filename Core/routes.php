@@ -14,6 +14,9 @@
    $router->get(addRoute('delete_account'),'Controllers/setting/delete.php')->only('auth');
 
    $router->patch(addRoute('update_profile'),'Controllers/setting/actions/update_profile.php')->only('auth');
+   $router->patch(addRoute('update_password'),'Controllers/setting/actions/update_password.php')->only('auth');
+   $router->delete(addRoute('delete_account'),'Controllers/setting/actions/delete_account.php')->only('auth');
+
 
    $router->post(addRoute('store'),'Controllers/Rooms/store.php');
    

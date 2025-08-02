@@ -6,19 +6,15 @@
 
     $rooms = $db->query("SELECT * FROM rooms")->fetchAll();
 
-    if(isset($_SESSION['user'])){
-        $user_id = $db->query("SELECT id FROM user WHERE username = :username",[
-            'username' => $_SESSION['user']
-        ])->fetch();
-
-
+    if(isset($_SESSION['user_id'])){
+        
         $unjoined_room_ids = $db->query("
             SELECT r.id 
             FROM rooms r
             LEFT JOIN room_members rm ON r.id = rm.room_id AND rm.user_id = :user_id
             WHERE rm.room_id IS NULL
         ", [
-            'user_id' => $user_id['id']
+            'user_id' => $_SESSION['user_id']
         ])->fetchAll();
 
         $rooms = [];
@@ -76,7 +72,7 @@
             <?php foreach ($rooms as $room):?>
 
                 
-                <div class="border-2 w-1/2 rounded-lg ml-6 bg-white p-3">
+                <div class="border-2  w-[80%] sm:w-[85%] md:w-[75%] lg:w-[65%] xl:w-[55%] bg-white rounded-lg ml-6  p-3">
                     <a href="join-notice/?id=<?php echo $room['id'] ?>">
                     <div class=" mt-1 flex justify-between px-2 text-sm">
                         <p><?php echo timeAgo($room['created_date']) ?></p>

@@ -11,7 +11,7 @@
           </a>
         </li>
 
-        <?php if(isset($_SESSION['user'])):?>
+        <?php if(isset($_SESSION['user_id'])):?>
         <li>
           <a href="<?php echo addRoute('myrooms') ?>" class=<?php echo $_SERVER['REQUEST_URI'] == addRoute('myrooms') ? "active" : ""  ?>>
             <i class="bx bx-grid-alt"></i>
@@ -21,7 +21,7 @@
         <?php endif ?>
         
 
-        <?php if(isset($_SESSION['user'])): ?>
+        <?php if(isset($_SESSION['user_id'])): ?>
         <li class="log_out">
           <form  action="<?php echo addRoute('logout') ?>" method="post">
             <a>

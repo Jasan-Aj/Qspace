@@ -30,10 +30,7 @@ if(isset($_SESSION['user_id'])) {
         <i class="bx bx-menu sidebarBtn"></i>
         <span class="dashboard"><?php echo $heading ?></span>
     </div>
-    <div class="search-box">
-        <input type="text" placeholder="Search..." />
-        <i class="bx bx-search"></i>
-    </div>
+    
     <div class="profile-details">
         <?php if(isset($_SESSION['user_id'])): ?>
             <a href="<?php echo addRoute('profile') ?>">

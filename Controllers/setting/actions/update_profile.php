@@ -2,10 +2,8 @@
     $config = require base_path('Core/config.php');
     $db = new Database($config);
 
-    $res = $db->query("SELECT id FROM user WHERE username = :username",[
-      'username' => $_SESSION['user']
-    ])->fetch();
-    $id = $res['id'];
+    
+    $id = $_SESSION['user_id'];
 
     $res = $db->query("SELECT * FROM user WHERE id=:id",[
         'id' => $id
@@ -49,7 +47,6 @@
             unlink($old_image_path);
         }
         
-        $_SESSION['user'] = $username;
         header('location:'.addRoute('rooms'));
                 
         } 
@@ -137,7 +134,7 @@
                 if (file_exists($old_image_path)) {
                 unlink($old_image_path);
                 }
-                $_SESSION['user'] = $username;
+                
                 header('location:'.addRoute('rooms'));
                 
                 } 
@@ -153,7 +150,7 @@
                     'username' => $username,
                     'id' => $id,
                 ]);
-                $_SESSION['user'] = $username;
+                
                 header('location:'.addRoute('rooms'));
                 
             }
@@ -200,7 +197,7 @@
                     if (file_exists($old_image_path)) {
                     unlink($old_image_path);
                     }
-                    $_SESSION['user'] = $username;
+                    
                     header('location:'.addRoute('rooms'));
                     
         
@@ -217,7 +214,7 @@
                         'username' => $username,
                         'id' => $id,
                     ]);
-                    $_SESSION['user'] = $username;
+                    
                     header('location:'.addRoute('rooms'));
                     
             }

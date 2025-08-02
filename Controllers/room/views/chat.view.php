@@ -1,8 +1,14 @@
 <?php
-    $username = $_SESSION['user'];
+    $id = $_SESSION['user_id'];
     $room_id = $_GET['id'];
     $config = require base_path('Core/config.php');
     $db = new Database($config);
+
+    $res = $db->query("SELECT username from user WHERE id = :id",[
+      'id' => $id
+    ])->fetch();
+
+    $username = $res['username'];
 
     $res = $db->query("SELECT * FROM rooms WHERE id=:id",[
       'id' => $room_id
@@ -172,7 +178,7 @@
         </a>
       </li>
       
-      <?php if(isset($_SESSION['user'])): ?>
+      <?php if(isset($_SESSION['user_name'])): ?>
       <li class="log_out">
         <form action="<?php echo addRoute('logout') ?>" method="post">
           <a style="display: flex; align-items: center;">
