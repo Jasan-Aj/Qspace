@@ -12,10 +12,14 @@
    $router->get(addRoute('profile'),'Controllers/setting/profile.php')->only('auth');
    $router->get(addRoute('change_password'),'Controllers/setting/password.php')->only('auth');
    $router->get(addRoute('delete_account'),'Controllers/setting/delete.php')->only('auth');
+   $router->get(addRoute('edit_rooms'),'Controllers/setting/edit_rooms.php')->only('auth');
+   $router->get(addRoute('edit_room/'),'Controllers/setting/edit_room_form.php')->only('auth');
+   $router->get(addRoute('delete_room/'),'Controllers/setting/actions/delete_room.php')->only('auth');
 
    $router->patch(addRoute('update_profile'),'Controllers/setting/actions/update_profile.php')->only('auth');
    $router->patch(addRoute('update_password'),'Controllers/setting/actions/update_password.php')->only('auth');
    $router->delete(addRoute('delete_account'),'Controllers/setting/actions/delete_account.php')->only('auth');
+   $router->patch(addRoute('update_room'),'Controllers/setting/actions/update_room.php')->only('auth');
 
 
    $router->post(addRoute('store'),'Controllers/Rooms/store.php');

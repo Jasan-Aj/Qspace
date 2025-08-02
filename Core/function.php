@@ -26,4 +26,8 @@
         return $host['username'];
     }
 
+    function getRoomMemberCount($id){
+        return 2;
+    }
+
 ?>

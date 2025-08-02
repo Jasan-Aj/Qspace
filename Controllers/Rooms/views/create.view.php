@@ -80,8 +80,8 @@
                                 rows="4" 
                                 placeholder="Tell us more about your inquiry..." 
                                 class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition duration-200"
-                                value="<?php echo isset($errors['body']) ? $_POST['description'] : ' ' ?>"
-                            ></textarea>
+                                
+                            >value="<?php echo isset($errors['body']) ? $_POST['description'] : ' ' ?>"</textarea>
                         </div>
                         
                         <!-- Submit Button -->

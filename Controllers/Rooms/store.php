@@ -16,7 +16,7 @@
 
     if(!$res){
         $errors['body'] = "Room name already exist";
-        require base_path('Controllers/Room/create.php');
+        require base_path('Controllers/Rooms/create.php');
     }
     else{
         $db->query("INSERT INTO rooms (name,topic,host,members_count,description) VALUES(:name, :topic, :host, :members_count, :description)",[
