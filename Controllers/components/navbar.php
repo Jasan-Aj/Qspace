@@ -17,7 +17,7 @@ if(isset($_SESSION['user'])) {
       $profilePath = "assets/uploads/".$profile_pic;
     }
     else{
-      $profilePath= "assets/pic.jpg";
+      $profilePath= "assets/pic.png";
     }
 }
 ?>

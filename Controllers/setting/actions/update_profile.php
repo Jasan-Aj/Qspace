@@ -11,7 +11,8 @@
         'id' => $id
     ])->fetchAll();
     $current_details = $res[0];
-
+    $old_image_path = "../assets/uploads/".$current_details['profile_pic'];
+    
     $username = $_POST['username'];
     $email = $_POST['email'];
     $upload_dir = base_path("assets/uploads/");
@@ -43,6 +44,11 @@
             'profile_pic' => $file_name,
             'id' => $id,
         ]);
+        if (file_exists($old_image_path)) {
+
+            unlink($old_image_path);
+        }
+        
         $_SESSION['user'] = $username;
         header('location:'.addRoute('rooms'));
                 
@@ -79,6 +85,9 @@
                     'profile_pic' => $file_name,
                     'id' => $id,
                 ]);
+                if (file_exists($old_image_path)) {
+                unlink($old_image_path);
+                }
                 header('location:'.addRoute('rooms'));
                 
     
@@ -125,10 +134,12 @@
                     'profile_pic' => $file_name,
                     'id' => $id,
                 ]);
+                if (file_exists($old_image_path)) {
+                unlink($old_image_path);
+                }
                 $_SESSION['user'] = $username;
                 header('location:'.addRoute('rooms'));
                 
-    
                 } 
                 else {
                     $errors['body'] = "Error in moving file!";
@@ -186,6 +197,9 @@
                         'profile_pic' => $file_name,
                         'id' => $id,
                     ]);
+                    if (file_exists($old_image_path)) {
+                    unlink($old_image_path);
+                    }
                     $_SESSION['user'] = $username;
                     header('location:'.addRoute('rooms'));
                     

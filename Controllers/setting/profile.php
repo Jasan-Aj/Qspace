@@ -14,7 +14,7 @@
     $details = $res[0];
 
     $profile_pic =  "/git/Qspace/assets/uploads/".$details['profile_pic'];
-    $default_pic =  "/git/Qspace/assets/pic.jpg"
+    $default_pic =  "/git/Qspace/assets/pic.png"
 ?>
 <body class="bg-gray-50">
     
