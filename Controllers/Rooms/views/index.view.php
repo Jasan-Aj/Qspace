@@ -62,32 +62,11 @@
 <?php require base_path('Controllers/components/sidebar.php') ?>
 
 <section class="home-section">
-<<<<<<< HEAD
+
       <?php require base_path('Controllers/components/navbar.php') ?>
-=======
-      <nav>
-        <div class="sidebar-button">
-          <i class="bx bx-menu sidebarBtn"></i>
-          <span class="dashboard">Available Rooms</span>
-        </div>
-        <div class="search-box">
-          <input type="text" placeholder="Search here " />
-          <i class="bx bx-search"></i>
-        </div>
-        <div class="profile-details">
-            <?php if(isset($_SESSION['user'])): ?>
-                <img src="assets/pic.jpg" alt="" />
-                <span class="admin_name"><?php echo $_SESSION['user'] ?></span>
-                <i class="bx bx-chevron-down"></i>
-            <?php else: ?>
-                <div class="buttons">
-                    <a href="login"><button>login</button></a>
-                    <a href="register"><button>Sign up</button></a>
-                </div>
-            <?php endif ?>
-        </div>
-      </nav>
->>>>>>> 2cb02a8afa4b9df34cdaf353cb800281a47117c2git
+
+      
+
 
     <div class="home-content">
         <div class="flex justify-end">
