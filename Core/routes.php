@@ -7,7 +7,12 @@
    $router->get(addRoute('register'),'Controllers/user/register.php')->only('guest');
    $router->get(addRoute('join-notice/'),'Controllers/room/notice.php')->only('auth');
    $router->get(addRoute('myrooms'),'Controllers/room/index.php')->only('auth');
-   $router->get(addRoute('chat/'),'Controllers/room/chat.php')->only('auth');
+   $router->get(addRoute('chat/'),'Controllers/chat/chat.php')->only('auth');
+
+
+   // Chat message routes
+   $router->post(addRoute('chat/send-message'), 'Controllers/chat/views/send_message.php')->only('auth');
+   $router->get(addRoute('chat/get-messages'), 'Controllers/chat/views/get_messages.php')->only('auth');
 
    $router->get(addRoute('profile'),'Controllers/setting/profile.php')->only('auth');
    $router->get(addRoute('change_password'),'Controllers/setting/password.php')->only('auth');
