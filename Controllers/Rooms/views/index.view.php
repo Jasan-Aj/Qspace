@@ -110,11 +110,11 @@
                                         <?php echo htmlspecialchars($room['topic']) ?>
                                     </p>                           
                                     <span class="text-sm font-semibold text-gray-500">
-                                        10/50
+                                        <?php echo getRoomMemberCount($room['id']) ?>/<?php echo $room['members_count'] ?>
                                     </span>
                                 </div>
                                 <div class="w-full bg-gray-200 rounded-full h-2.5">
-                                    <?php $percentage = 10 / 50 * 100; ?>
+                                    <?php $percentage = getRoomMemberCount($room['id']) / $room['members_count'] * 100; ?>
                                     <div class="h-2.5 rounded-full bg-gradient-to-r from-blue-500 to-blue-600" 
                                          style="width: <?php echo $percentage ?>%">
                                     </div>

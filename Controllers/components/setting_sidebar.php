@@ -6,7 +6,7 @@
                 Settings
             </span>
             <div class="flex w-full flex-col items-start gap-4 mb-8">
-                <a href="rooms" class="w-full font-semibold text-default-font">
+                <a href="<?php echo addRoute('rooms') ?>" class="w-full font-semibold text-default-font">
                     <i class="fas fa-home"></i>   Home
                 </a>
             </div>

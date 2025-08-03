@@ -1,10 +1,12 @@
 <?php 
 
     require base_path('Controllers/components/header.php');
+    $room_id = $_GET['id'];
+    $haveSpace = isHaveSpace($room_id);
 
 ?>
 <style>
-    /* Add the sidebar CSS from the working example */
+    
     *{
       margin: 0;
       padding: 0;
@@ -140,8 +142,9 @@
         <div class="home-content">
 
         <div class="flex items-center justify-center p-4">
+          <?php if($haveSpace): ?>
+
             <div class="w-full max-w-md bg-white rounded-xl shadow-lg overflow-hidden">
-                
                 <div class="bg-indigo-600 p-6 text-center">
                 <h2 class="text-2xl font-bold text-white">Room Guidelines</h2>
                 <p class="text-indigo-100 mt-1">Please read and accept before joining</p>
@@ -215,7 +218,40 @@
                     Cancel
                 </a>
                 </div>
+              </div>
+              <?php else: ?>
+
+               <div class="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 backdrop-blur-sm">
+                <div class="bg-white rounded-xl shadow-2xl md:w-full w-[70%] max-w-md mx-auto overflow-hidden">
+                    
+                    <div class="bg-red-50 p-5 flex flex-col items-center">
+                        <div class="bg-red-100 p-3 rounded-full mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 sm:text-xl">Room is Full</h3>
+                    </div>
+
+                    
+                    <div class="p-5 sm:p-6">
+                        <p class="text-gray-600 text-center mb-6 sm:mb-7">
+                            Sorry, this room has reached its maximum capacity. Please join another room or create your own.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="<?php echo addRoute('rooms') ?>" class="px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-200 font-medium text-center focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:bg-blue-800 sm:flex-1">
+                                Browse Rooms
+                            </a>
+                            <a href="<?php echo addRoute('create-room') ?>" class="px-4 py-2.5 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-all duration-200 font-medium text-center focus:ring-2 focus:ring-green-500 focus:ring-offset-2 active:bg-green-800 sm:flex-1">
+                                Create New Room
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+              <?php endif ?>
             </div>
         </div>
     </section>

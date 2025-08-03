@@ -82,8 +82,8 @@ function timeAgo($date){
             <!-- Rooms List -->
             <div class="flex flex-col gap-5 pb-16">
                 <?php foreach ($rooms as $room): ?>
-                    <a href="chat/?id=<?php echo $room['id'] ?>" class="block hover:no-underline">
-                        <div class="border-2 w-[80%] sm:w-[85%] md:w-[75%] lg:w-[65%] xl:w-[55%] rounded-lg ml-6 bg-white p-3 hover:shadow-md transition-shadow">
+                        <div class="border-2 w-[80%] sm:w-[85%] md:w-[75%] lg:w-[65%] xl:w-[55%] hover:no-underline rounded-lg ml-6 bg-white p-3 hover:shadow-md transition-shadow">
+                            <a href="chat/?id=<?php echo $room['id'] ?>">
                             <div class="mt-1 flex justify-between px-2 text-sm text-gray-500">
                                 <p><?php echo timeAgo($room['created_date']) ?></p>
                                 <p><?php echo getHost($room['host']) ?></p>
@@ -98,18 +98,18 @@ function timeAgo($date){
                                         <?php echo htmlspecialchars($room['topic']) ?>
                                     </p>                           
                                     <span class="text-sm font-semibold text-gray-500">
-                                        <?php echo getRoomMemberCount($room['id']) ?>/50
-                                    </span>
+                                        <?php echo getRoomMemberCount($room['id']) ?>/<?php echo $room['members_count'] ?>
                                 </div>
                                 <div class="w-full bg-gray-200 rounded-full h-2.5">
-                                    <?php $percentage = (getRoomMemberCount($room['id']) / 50) * 100; ?>
+                                    <?php $percentage = (getRoomMemberCount($room['id']) / $room['members_count']) * 100; ?>
                                     <div class="h-2.5 rounded-full bg-gradient-to-r from-blue-500 to-blue-600" 
                                          style="width: <?php echo $percentage ?>%">
                                     </div>
                                 </div>
                             </div>
+                            </a>
                         </div>
-                    </a>
+                   
                 <?php endforeach ?>
             </div>
         <?php endif ?>

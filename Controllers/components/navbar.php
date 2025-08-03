@@ -1,5 +1,4 @@
 <?php
-
 if(isset($_SESSION['user_id'])) {
     $config = require base_path("Core/config.php");
     $db = new Database($config);
@@ -31,8 +30,8 @@ if(isset($_SESSION['user_id'])) {
         <span class="dashboard"><?php echo $heading ?></span>
     </div>
     <div class="search-box">
-        <input type="text" placeholder="Search..." />
-        <i class="bx bx-search"></i>
+        <input type="text" id="roomSearchInput" placeholder="Search rooms..." />
+        <i class="bx bx-search" id="roomSearchButton"></i>
     </div>
     <div class="profile-details">
         <?php if(isset($_SESSION['user_id'])): ?>
@@ -51,3 +50,43 @@ if(isset($_SESSION['user_id'])) {
         <?php endif ?>
     </div>
 </nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('roomSearchInput');
+    const searchButton = document.getElementById('roomSearchButton');
+    
+    function filterRooms() {
+        const query = searchInput.value.toLowerCase().trim();
+        const roomCards = document.querySelectorAll('.home-content > .flex > div'); // Select all room cards
+        
+        roomCards.forEach(card => {
+            const roomName = card.querySelector('.text-gray-800').textContent.toLowerCase();
+            const roomTopic = card.querySelector('.text-gray-600').textContent.toLowerCase();
+            
+            if (roomName.includes(query) || roomTopic.includes(query)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+    
+    
+    searchButton.addEventListener('click', filterRooms);
+    
+    
+    let searchTimeout;
+    searchInput.addEventListener('input', function() {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(filterRooms, 300);
+    });
+    
+    
+    searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            filterRooms();
+        }
+    });
+});
+</script>
