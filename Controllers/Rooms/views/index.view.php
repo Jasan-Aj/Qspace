@@ -126,8 +126,6 @@
             </div>
         <?php endif ?>
     </div>
-    
     <?php require base_path('Controllers/components/footer.php') ?>
-</section>
-    
+</section>    
 <?php require base_path('Controllers/components/footer.php') ?>

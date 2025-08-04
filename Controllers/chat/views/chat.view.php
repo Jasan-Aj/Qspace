@@ -278,13 +278,24 @@ foreach($room_members_ids as $id){
                 <?php endforeach ?>
                 
             </div>
-            
+            <?php if($room['host'] == $_SESSION['user_id']) :?>
+
             <div class="p-4 border-t border-gray-200">
-                <button class="w-full py-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition flex items-center justify-center space-x-2">
+                <a href="<?php echo addRoute('destroy_room') ?>\?id=<?php echo $room_id ?>" class="w-full py-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition flex items-center justify-center space-x-2">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Delete Group</span>
+                </a>
+            </div>
+
+            <?php else: ?>
+
+                <div class="p-4 border-t border-gray-200">
+                <a href="<?php echo addRoute('left_room') ?>\?id=<?php echo $room_id ?>" class="w-full py-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition flex items-center justify-center space-x-2">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Leave Group</span>
-                </button>
+                </a>
             </div>
+            <?php endif ?>
         </div>
     </div>
 

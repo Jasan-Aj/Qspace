@@ -11,8 +11,10 @@
 
 
    // Chat message routes
-   $router->post(addRoute('chat/send-message'), 'Controllers/chat/views/send_message.php')->only('auth');
-   $router->get(addRoute('chat/get-messages'), 'Controllers/chat/views/get_messages.php')->only('auth');
+   $router->post(addRoute('chat/send-message'), 'Controllers/chat/actions/send_message.php')->only('auth');
+   $router->get(addRoute('chat/get-messages'), 'Controllers/chat/actions/get_messages.php')->only('auth');
+   $router->get(addRoute('left_room/'), 'Controllers/chat/actions/left_room.php')->only('auth');
+   $router->get(addRoute('destroy_room/'), 'Controllers/chat/actions/destroy.php')->only('auth');
 
    $router->get(addRoute('profile'),'Controllers/setting/profile.php')->only('auth');
    $router->get(addRoute('change_password'),'Controllers/setting/password.php')->only('auth');

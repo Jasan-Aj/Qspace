@@ -35,7 +35,7 @@
         'user_id' => $user_id,
         ]);
 
-        header('location:'.addRoute('rooms'));
+        header('location:'.addRoute('myrooms'));
     }
 
 ?>

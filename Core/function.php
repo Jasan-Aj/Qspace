@@ -61,4 +61,8 @@
 
             return $current_users_count < $total_space;
         }
+
+        function click_counter($count){
+            return $count + 1;
+        }
 ?>
