@@ -49,8 +49,7 @@
         function isHaveSpace($id) {
             $config = require base_path("Core/config.php");
             $db = new Database($config);
-
-            
+ 
             $room = $db->query("SELECT members_count FROM rooms WHERE id = :id", [
                 'id' => $id
             ])->fetch();

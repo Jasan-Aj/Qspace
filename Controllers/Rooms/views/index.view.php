@@ -5,6 +5,7 @@
     $db = new Database($config);
 
     $rooms = $db->query("SELECT * FROM rooms")->fetchAll();
+    $chat_bot = '/git/Qspace/assets/chat-bot.gif';
 
     if(isset($_SESSION['user_id'])){
         
@@ -58,21 +59,29 @@
 <?php require base_path('Controllers/components/sidebar.php') ?>
 
 <section class="home-section">
-    <?php require base_path('Controllers/components/navbar.php') ?>
+        <?php require base_path('Controllers/components/navbar.php') ?>
 
-    <div class="home-content">
-        
-        <div class="fixed top-15 right-6 z-50">
-            <a href="create-room" class="bg-green-600 hover:bg-green-700 rounded-full p-4 shadow-lg transition-colors duration-200 flex items-center justify-center">
+        <div class="home-content">
+        <div class="fixed right-28 z-50">
+            
+            <a href="create-room" class="absolute top-[10px] left-4 bg-green-600 hover:bg-green-700 rounded-full p-4 shadow-lg transition-colors duration-200 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
                 <span class="sr-only">Create Room</span>
             </a>
+
+            
+            <a href="chat-bot" class="absolute top-[90px]">
+                <button id="options-button" class=" w-[90px] bg-white shadow-lg rounded-full mr-[50px] transition-colors duration-200 flex items-center justify-center">
+                    <img class="w-[200px]" src="/git/Qspace/assets/chat-bot.gif" alt="image">
+                    <span class="sr-only">Options</span>
+                </button>
+            </a>
         </div>
 
         <?php if (empty($rooms)): ?>
-            <!-- Empty State -->
+            
             <div class="flex flex-col items-center justify-center h-[60vh]">
                 <div class="text-center">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -91,17 +100,19 @@
                 </div>
             </div>
         <?php else: ?>
-            <!-- Rooms List -->
+           
             <div class="flex flex-col gap-5 pb-16">
                 <?php foreach ($rooms as $room): ?>
-                    <div class="border-2 w-[80%] sm:w-[85%] md:w-[75%] lg:w-[65%] xl:w-[55%] bg-white rounded-lg ml-6 p-3 hover:shadow-md transition-shadow">
+                    <div id="room" data-roomid = <?php echo $room['id'] ?> class="border-2 w-[80%] sm:w-[85%] md:w-[75%] lg:w-[65%] xl:w-[55%] bg-white rounded-lg ml-6 p-3 hover:shadow-md transition-shadow">
                         <a href="join-notice/?id=<?php echo $room['id'] ?>">
                             <div class="mt-1 flex justify-between px-2 text-sm text-gray-500">
                                 <p><?php echo timeAgo($room['created_date']) ?></p>
                                 <p><?php echo getHost($room['host']) ?></p>
                             </div>
-                            <div class="mt-1 px-2 text-lg font-semibold py-3">
-                                <p class="text-gray-800"><?php echo htmlspecialchars($room['name']) ?></p>
+                            <div class="mt-1 px-2 py-3 flex justify-start">
+                                <p class="text-gray-800 text-lg font-semibold "><?php echo htmlspecialchars($room['name']) ?></p>
+                                <p class="text-sm flex mb-2">
+                                
                             </div>
                             <hr class="border-gray-100">
                             <div class="flex flex-col gap-2 mt-2">
@@ -126,6 +137,25 @@
             </div>
         <?php endif ?>
     </div>
+</section> 
+<Script>
+
+    // $(document).ready(function(){
+    //     $('[data-roomid]').click(function(){
+    //         var roomid = $(this).data('roomid');
+    //         $.ajax({
+    //             type: 'POST',
+    //             url: 'increaseViews',
+    //             data: {roomid: roomid},
+    //             success: function(data){
+    //                 $('#view-count').html('Views: ' + data);
+    //             }
+    //         });
+    //     });
+    // });
+
+</Script>
     <?php require base_path('Controllers/components/footer.php') ?>
-</section>    
-<?php require base_path('Controllers/components/footer.php') ?>
+
+
+
