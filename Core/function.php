@@ -64,4 +64,15 @@
         function click_counter($count){
             return $count + 1;
         }
+
+        function getUser($id){
+            $config = require base_path("Core/config.php");
+            $db = new Database($config); 
+
+            $res = $db->query("SELECT role FROM user WHERE id = :id",[
+                'id' => $id
+            ])->fetch();
+            return $res['role'];
+
+        }
 ?>

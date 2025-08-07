@@ -27,8 +27,12 @@
             'description' => $description,
             'id' => $id,
         ]);
-
-        header('location:'.addRoute('edit_rooms'));
+        if(getUser($_SESSION['user_id']) == 'admin'){
+            header('location:'.addRoute('admin'));
+        }
+        else{
+            header('location:'.addRoute('edit_rooms'));
+        }
     }
 
 ?>

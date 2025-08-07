@@ -52,10 +52,11 @@ function timeAgo($date){
         
         <div class="fixed right-28 z-50">
             
-            <a href="rooms" class="absolute top-[10px] left-3 bg-green-600 hover:bg-green-700 rounded-full p-4 shadow-lg transition-colors duration-200 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+            <a href="rooms" class="absolute top-[10px] left-3 bg-blue-400 text-white hover:bg-green-700 rounded-full p-5 shadow-lg transition-colors duration-200 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                 </svg>
+
                 <span class="sr-only">Create Room</span>
             </a>
 

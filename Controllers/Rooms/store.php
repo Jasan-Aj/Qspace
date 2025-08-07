@@ -26,16 +26,22 @@
             'members_count' => $count,
             'description' => $description,
         ]);
-        $res = $db->query("SELECT id FROM rooms WHERE name = :name",[
-            'name' => $name
-        ])->fetch();
-        
-        $db->query("INSERT INTO room_members (room_id, user_id) VALUES(:room_id, :user_id)",[
-        'room_id' => $res['id'],
-        'user_id' => $user_id,
-        ]);
 
-        header('location:'.addRoute('myrooms'));
+        if(getUser($_SESSION['user_id']) == 'admin'){
+           header('location:'.addRoute('admin')); 
+        }
+        else{
+             $res = $db->query("SELECT id FROM rooms WHERE name = :name",[
+                'name' => $name
+            ])->fetch();
+            
+            $db->query("INSERT INTO room_members (room_id, user_id) VALUES(:room_id, :user_id)",[
+            'room_id' => $res['id'],
+            'user_id' => $user_id,
+            ]);
+
+            header('location:'.addRoute('myrooms'));
+        }
     }
 
 ?>

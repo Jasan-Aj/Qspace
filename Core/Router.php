@@ -70,6 +70,16 @@
                             $state = true;
                         }
                     }
+                    elseif($route['middleware'] == "admin"){
+                        if(getUser($_SESSION['user_id']) == 'admin'){
+                            require base_path($route['controller']);
+                            $state = true;
+                        }
+                        else{
+                            header('location:'.addRoute('rooms'));
+                            exit();
+                        }
+                    }
                     else{
                         require base_path($route['controller']);
                         $state = true;

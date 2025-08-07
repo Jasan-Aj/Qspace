@@ -9,7 +9,11 @@
    $router->get(addRoute('myrooms'),'Controllers/room/index.php')->only('auth');
    $router->get(addRoute('chat/'),'Controllers/chat/chat.php')->only('auth');
    $router->get(addRoute('chat-bot'),'Controllers/chatbot/index.php')->only('auth');
+   $router->get(addRoute('admin'),'Controllers/admin/index.php')->only('admin');
+   $router->get(addRoute('admin_rooms'),'Controllers/admin/rooms.php')->only('admin');
+   $router->get(addRoute('admin_users'),'Controllers/admin/users.php')->only('admin');
 
+   $router->get(addRoute('admin_delete_user/'),'Controllers/setting/actions/delete_account_admin.php')->only('admin');
 
    // Chat message routes
    $router->post(addRoute('chat/send-message'), 'Controllers/chat/actions/send_message.php')->only('auth');
@@ -36,7 +40,7 @@
    $router->post(addRoute('store-user'),'Controllers/user/store.php');
    $router->post(addRoute('session'),'Controllers/user/sessions.php');
 
-   $router->delete(addRoute('logout'),'Controllers/user/logout.php')->only('auth');
+   $router->get(addRoute('logout'),'Controllers/user/logout.php')->only('auth');
 
    $router->put(addRoute('store'),'Controllers/room/store.php');
 ?>

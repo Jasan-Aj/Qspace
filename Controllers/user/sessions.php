@@ -38,7 +38,13 @@
             ])->fetch();
             
             $_SESSION['user_id'] = $user['id'];
-            header('location:rooms');
+            if(getUser($_SESSION['user_id']) == 'admin'){
+                header('location:'.addRoute('admin')); 
+            }
+            else{
+                header('location:'.addRoute('rooms'));
+            }
+            
         }
     }
 

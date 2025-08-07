@@ -36,4 +36,10 @@
                     </a>
                 </div>
             </div>
+
+            <div class="flex w-full flex-col items-start mt-9 gap-4">
+                <span class="w-full font-semibold text-default-font">
+                    <a href="<?php echo addRoute('logout') ?>"><i class="fa fa-sign-out" aria-hidden="true"></i>     Logout</a>
+                </span>
+            </div>
         </div>
