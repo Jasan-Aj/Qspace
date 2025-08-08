@@ -320,7 +320,7 @@ nav .profile-details i{
   list-style: none;
   margin: 8px 0;
 }
-.sales-boxes .sales-details li a{
+.sales-boxes .sales-details li p{
   font-size: 18px;
   color: #333;
   font-size: 400;
@@ -366,8 +366,8 @@ nav .profile-details i{
   object-fit: cover;
   border-radius: 12px;
   margin-right: 10px;
-  background: #333;
 }
+
 .sales-boxes .top-sales li a{
   display: flex;
   align-items: center;
