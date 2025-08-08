@@ -12,8 +12,10 @@
    $router->get(addRoute('admin'),'Controllers/admin/index.php')->only('admin');
    $router->get(addRoute('admin_rooms'),'Controllers/admin/rooms.php')->only('admin');
    $router->get(addRoute('admin_users'),'Controllers/admin/users.php')->only('admin');
+   $router->get(addRoute('admin_topics'),'Controllers/admin/topic.php')->only('admin');
 
-   $router->get(addRoute('admin_delete_user/'),'Controllers/setting/actions/delete_account_admin.php')->only('admin');
+   $router->get(addRoute('admin_delete_user/'),'Controllers/admin/actions/delete_account_admin.php')->only('admin');
+   $router->put(addRoute('add_topic'),'Controllers/admin/actions/add_topic.php')->only('admin');
 
    // Chat message routes
    $router->post(addRoute('chat/send-message'), 'Controllers/chat/actions/send_message.php')->only('auth');

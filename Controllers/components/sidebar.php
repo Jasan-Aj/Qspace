@@ -49,7 +49,13 @@
                   <span class="links_name">Users</span>
                 </a>
               </li>
-            
+
+              <li>
+                <a href="<?php echo addRoute('admin_topics') ?>" class=<?php echo $_SERVER['REQUEST_URI'] == addRoute('admin_topics') ? "active" : ""  ?> >
+                  <i class="bx bx-grid-alt"></i>
+                  <span class="links_name">Topics</span>
+                </a>
+              </li>
 
           <?php endif ?>
 

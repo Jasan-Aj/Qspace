@@ -140,20 +140,6 @@
 </section> 
 <Script>
 
-    // $(document).ready(function(){
-    //     $('[data-roomid]').click(function(){
-    //         var roomid = $(this).data('roomid');
-    //         $.ajax({
-    //             type: 'POST',
-    //             url: 'increaseViews',
-    //             data: {roomid: roomid},
-    //             success: function(data){
-    //                 $('#view-count').html('Views: ' + data);
-    //             }
-    //         });
-    //     });
-    // });
-
 </Script>
     <?php require base_path('Controllers/components/footer.php') ?>
 
