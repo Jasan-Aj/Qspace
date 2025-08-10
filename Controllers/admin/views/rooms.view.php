@@ -97,8 +97,8 @@
                 <?php foreach ($rooms as $room): ?>
                     <div class="flex">
                            
-                        <div data-roomid = <?php echo $room['id'] ?> class="border-2 w-[80%] sm:w-[85%] md:w-[75%] lg:w-[65%] xl:w-[55%] bg-white rounded-lg ml-6 p-3 hover:shadow-md transition-shadow">
-                            
+                        <div data-roomid = <?php echo $room['id'] ?> class="border-2 w-[80%] sm:w-[85%] md:w-[75%] lg:w-[65%] xl:w-[55%] bg-white rounded-lg ml-6 p-3 hover:shadow-md transition-shadow flex ">
+                            <div class="w-full">
                                 <div class="mt-1 flex justify-between px-2 text-sm text-gray-500">
                                     <p><?php echo timeAgo($room['created_date']) ?></p>
                                     <p><?php echo getHost($room['host']) ?></p>
@@ -125,11 +125,12 @@
                                         </div>
                                     </div>
                                 </div>
-                        </div>
-                            <div class="flex flex-col ml-2 mt-1 gap-2">
-                                <a href="edit_room\?id=<?php echo $room['id'] ?>" class="px-3 py-2 rounded-lg bg-blue-500 text-white hover:shadow-lg transition-shadow"><i class="fas fa-pencil-alt"></i></a>
-                                <a href="delete_room\?id=<?php echo $room['id'] ?>" onclick="return confirmNavigation(this)" class="px-3 py-2 rounded-lg bg-red-500 text-white hover:shadow-lg transition-shadow"><i class="fas fa-trash-alt"></i></a>
                             </div>
+                            <div class="flex flex-col ml-2 mt-1 gap-2">
+                                <a href="edit_room\?id=<?php echo $room['id'] ?>" class="px-3 py-2 rounded-lg bg-blue-500 text-white hover:shadow-lg transition-shadow w-[40px]"><i class="fas fa-pencil-alt"></i></a>
+                                <a href="delete_room\?id=<?php echo $room['id'] ?>" onclick="return confirmNavigation(this)" class="px-3 py-2 rounded-lg bg-red-500  w-[40px] text-white hover:shadow-lg transition-shadow"><i class="fas fa-trash-alt"></i></a>
+                            </div>
+                        </div>
                     </div>
                 <?php endforeach ?>
             </div>

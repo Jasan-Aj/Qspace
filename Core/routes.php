@@ -16,6 +16,7 @@
 
    $router->get(addRoute('admin_delete_user/'),'Controllers/admin/actions/delete_account_admin.php')->only('admin');
    $router->put(addRoute('add_topic'),'Controllers/admin/actions/add_topic.php')->only('admin');
+   $router->get(addRoute('delete_topic/'),'Controllers/admin/actions/delete_topic.php')->only('admin');
 
    // Chat message routes
    $router->post(addRoute('chat/send-message'), 'Controllers/chat/actions/send_message.php')->only('auth');

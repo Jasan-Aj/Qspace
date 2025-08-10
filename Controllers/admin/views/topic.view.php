@@ -16,7 +16,7 @@
 
     <div class="home-content flex flex-row items-center h-[90vh]">
         <main class="grid grid-cols-[50%_50%] w-full">
-            <div class="w-full flex justify-center items-center ">
+            <div class="w-full ml-2 flex justify-center items-center ">
                 <div class="bg-white rounded-xl shadow-xl p-6 sm:p-8">
                     <div class="text-center mb-3 ">
                         <h2 class="text-2xl font-bold text-gray-800">Add new topic</h2>
@@ -33,7 +33,6 @@
                                 name="name" 
                                 placeholder="Python" 
                                 class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition duration-200"
-                                
                                 value="<?php echo isset($errors['body']) ? $_POST['name'] : '' ?>"
                             >
                             <p class="text-sm text-red-500"><?php echo !empty($errors) ?  $errors['body'] : '' ?></p>
@@ -56,7 +55,10 @@
             <div class=" pl-5">
                 <h3 class=" font-semibold text-xl">Topics</h3>
                 <?php foreach($topics as $topic): ?>
-                    <p class="pl-4 pt-4 font-semibold text-lg">#    <?php echo $topic['name'] ?></p>
+                    <div class="pl-4 pt-4 bg-white p-2 flex justify-between my-3 w-[50%] rounded-lg shadow-lg ">
+                        <p class="font-semibold text-lg">#  <?php echo $topic['name'] ?></p>
+                        <a href="delete_topic/?name=<?php echo $topic['name'] ?>"  onclick="return confirmNavigation(this)" class="bg-red-500 text-sm text-white rounded-lg p-2">Delete</a>
+                    </div>
                 <?php endforeach ?>
             </div>
         </main>   
@@ -65,7 +67,17 @@
     </div>
 </section> 
     <script>
+            function confirmNavigation(link) {
+           
+            const confirmed = confirm('Are you sure?');
             
+            if (!confirmed) {
+                return false;
+            }
+            
+            
+            return true;
+            }
     </script>
 
     <?php require base_path('Controllers/components/footer.php') ?>
