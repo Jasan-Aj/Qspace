@@ -13,8 +13,6 @@
         $file_path = $upload_dir . $file_name;
     }
 
-    
-
     $email_res = $validator->lengthValidate($email);
     $pass_res = $validator->lengthValidate($password,8);
     $username_res = $validator->lengthValidate($username);
@@ -53,11 +51,13 @@
             if($file_name){
                 if (move_uploaded_file($_FILES['image']['tmp_name'], $file_path)) {
 
-                $db->query("INSERT INTO user (email, password, username, profile_pic) VALUES(:email, :password, :username, :profile_pic)",[
+                $db->query("INSERT INTO user (email, password, username, profile_pic, role) VALUES(:email, :password, :username, :profile_pic, :role)",[
                     'email' => $email,
                     'password' => password_hash(trim($password), PASSWORD_BCRYPT),
                     'username' => $username,
                     'profile_pic' => $file_name,
+                    'role' => 'user',
+
                 ]);
                 header('location:'.addRoute('login'));
     
@@ -70,10 +70,11 @@
             
             }
             else{
-               $db->query("INSERT INTO user (email, password, username) VALUES(:email, :password, :username)",[
+               $db->query("INSERT INTO user (email, password, username, role) VALUES(:email, :password, :username, :role)",[
                     'email' => $email,
                     'password' => password_hash(trim($password), PASSWORD_BCRYPT),
                     'username' => $username,
+                    'role' => 'user',
                     
                 ]);
                 header('location:'.addRoute('login'));
