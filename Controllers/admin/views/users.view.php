@@ -12,7 +12,7 @@
 <?php require base_path('Controllers/components/sidebar.php') ?>
 
 <section class="home-section">
-        <?php require base_path('Controllers/components/navbar.php') ?>
+        <?php require base_path('Controllers/components/nav_without_search.php') ?>
 
         <div class="home-content">
        

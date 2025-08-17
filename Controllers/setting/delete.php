@@ -10,10 +10,10 @@
                     <div class="flex w-full flex-col items-start gap-6 mb-12">
                         <div class="flex w-full flex-col items-start gap-1">
                             <h1 class="w-full text-3xl font-bold text-default-font">
-                                Account
+                                Delete Account
                             </h1>
                             <p class="w-full text-gray-600">
-                                Update your profile and personal details here
+                                Delete your account here
                             </p>
                         </div>
 
